@@ -1,0 +1,701 @@
+.issue-details-page{
+    --body-bg: #FFFFFF;
+    --body-text: #111827;
+    --body-text-secondary: #6B7280;
+
+    --toast-bg: #FFFFFF;
+    --toast-color: #111827;
+    --toast-border: 1px solid #E7ECF2;
+    --toast-shadow: 0 12px 30px rgba(15, 23, 42, .12);
+    --toast-success-icon-color: #16A34A;
+    --toast-error-icon-color: #DC2626;
+
+    --scrollbar-track-bg: #F1F5F9;
+    --scrollbar-thumb-bg: #CBD5E1;
+    --scrollbar-thumb-hover-bg: #94A3B8;
+
+    --modal-overlay-bg: rgba(15, 23, 42, .5);
+    --modal-bg: #FFFFFF;
+    --modal-border: 1px solid #E7ECF2;
+    --modal-shadow: 0 24px 60px rgba(15, 23, 42, .18);
+    --modal-separator-border: 1.5px solid #EEF2F6;
+    --modal-title: #111827;
+    --modal-subtitle: #6B7280;
+    --modal-icon-bg: #EAF8F0;
+    --modal-icon-color: #16A34A;
+
+    --form-label-color: #374151;
+    --input-bg: #FFFFFF;
+    --input-border: 1.5px solid #E5E7EB;
+    --input-focus-border: 1.5px solid #16A34A;
+
+    --card-bg: #FFFFFF;
+    --card-border: 1px solid #E7ECF2;
+    --card-shadow: 0 2px 12px rgba(15, 23, 42, .06);
+
+    --section-icon-color: #16A34A;
+    --divider: 1.5px solid #EEF2F6;
+
+    --label-color: #6B7280;
+    --value-color: #111827;
+
+    --condition-excellent-bg: #DCFCE7;
+    --condition-excellent-text: #166534;
+    --condition-excellent-dot: #16A34A;
+
+    --condition-good-bg: #EAF8F0;
+    --condition-good-text: #15803D;
+    --condition-good-dot: #16A34A;
+
+    --condition-fair-bg: #FFF8E6;
+    --condition-fair-text: #D97706;
+    --condition-fair-dot: #F59E0B;
+
+    --condition-poor-bg: #FEE2E2;
+    --condition-poor-text: #DC2626;
+    --condition-poor-dot: #EF4444;
+
+    --priority-critical-bg: #FEE2E2;
+    --priority-critical-text: #DC2626;
+    --priority-critical-dot: #EF4444;
+
+    --priority-high-bg: #F3E8FF;
+    --priority-high-text: #7E22CE;
+    --priority-high-dot: #9333EA;
+
+    --priority-medium-bg: #FFF7E6;
+    --priority-medium-text: #D97706;
+    --priority-medium-dot: #F59E0B;
+
+    --priority-low-bg: #EAF8F0;
+    --priority-low-text: #15803D;
+    --priority-low-dot: #16A34A;
+
+    --timeline-line: #DDE5ED;
+    --timeline-dot-bg: #FFFFFF;
+    --timeline-dot-border: 1.5px solid #D7F3E2;
+    --timeline-dot-active: #16A34A;
+
+    --status-under-maintenance-bg: #EFF6FF;
+    --status-under-maintenance-text: #1D4ED8;
+    --status-under-maintenance-dot: #2563EB;
+
+    --status-issue-bg: #FFF8E6;
+    --status-issue-text: #D97706;
+    --status-issue-dot: #F59E0B;
+
+    --status-resolved-bg: #EAF8F0;
+    --status-resolved-text: #15803D;
+    --status-resolved-dot: #16A34A;
+
+    --btn-primary-bg: #16A34A;
+    --btn-primary-color: #FFFFFF;
+    --btn-primary-border: 1px solid transparent;
+    --btn-primary-active-bg: #179345;
+
+    --btn-secondary-bg: #FFFFFF;
+    --btn-secondary-color: #374151;
+    --btn-secondary-border: 1.5px solid #E5E7EB;
+    --btn-secondary-active-bg: #F8FAFC;
+
+    --start-maint-btn-bg: #2563EB;
+    --start-maint-btn-color: #FFFFFF;
+    --start-maint-btn-active-bg: #1D4ED8;
+
+    --not-found-icon-bg: #EAF8F0;
+    --not-found-icon-color: #16A34A;
+    --not-found-title: #111827;
+    --not-found-desc: #6B7280;
+}
+
+.issue-details-page, .issue-details-page *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.issue-details-page {
+    font-family: "Inter", sans-serif;
+}
+
+.issue-details-page ::-webkit-scrollbar{
+    width: 8px;
+}
+
+.issue-details-page ::-webkit-scrollbar-track{
+    background-color: var(--scrollbar-track-bg);
+}
+
+.issue-details-page ::-webkit-scrollbar-thumb{
+    border-radius: 999px;
+    background-color: var(--scrollbar-thumb-bg);
+}
+
+.issue-details-page ::-webkit-scrollbar-thumb:hover{
+    background-color: var(--scrollbar-thumb-hover-bg);
+}
+
+.issue-details-page{
+    background-color: var(--body-bg);
+    color: var(--body-text);
+    padding-bottom: clamp(20px, 3vw, 30px);
+}
+
+.issue-details-page .container{
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 0 clamp(12px, 3vw, 30px);
+}
+
+
+
+
+
+
+
+
+
+
+
+.issue-details-page .not-found-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--body-bg);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: clamp(40px, 8vw, 80px) clamp(16px, 2vw, 24px);
+    height: 100vh;
+    width: 100%;
+}
+
+.issue-details-page .not-found-container .icon-circle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: clamp(80px, 7vw, 90px);
+    height: clamp(80px, 7vw, 90px);
+    border-radius: 50%;
+    background-color: var(--not-found-icon-bg);
+    color: var(--not-found-icon-color);
+    font-size: clamp(36px, 3vw, 40px);
+    margin-bottom: clamp(16px, 2vw, 24px);
+}
+
+.issue-details-page .not-found-container .not-found-title{
+    font-size: clamp(22px, 2vw, 28px);
+    font-weight: 700;
+    color: var(--not-found-title);
+    margin-bottom: clamp(8px, 1vw, 12px);
+}
+
+.issue-details-page .not-found-container .not-found-desc{
+    font-size: clamp(13px, 1.1vw, 15px);
+    color: var(--not-found-desc);
+    line-height: 1.5;
+    max-width: 400px;
+}
+
+.issue-details-page .not-found-container a{
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 0.6vw, 8px);
+    text-decoration: none;
+    padding: clamp(8px, 0.8vw, 10px) clamp(14px, 1.5vw, 16px);
+    border-radius: clamp(4px, 0.5vw, 6px);
+    margin-top: clamp(16px, 2vw, 24px);
+    font-size: clamp(14px, 1vw, 16px);
+    font-weight: 500;
+    color: var(--btn-primary-bg);
+    background-color: var(--btn-secondary-bg);
+    border: 1.5px solid var(--btn-primary-bg);
+    transition: background-color 0.2s ease;
+}
+
+.issue-details-page .not-found-container a:active{
+    background-color: var(--modal-icon-bg);
+}
+
+.issue-details-page .back-btn{
+    width: fit-content;
+    font-size: clamp(12px, 1vw, 14px);
+    display: flex;
+    align-items: center;
+    gap: clamp(4px, 0.5vw, 6px);
+    margin-top: clamp(15px, 2vw, 20px);
+    padding: clamp(6px, 0.6vw, 8px) clamp(10px, 1vw, 14px);
+    border-radius: clamp(4px, 0.5vw, 6px);
+    font-weight: 500;
+    background-color: var(--btn-secondary-bg);
+    color: var(--btn-secondary-color);
+    border: var(--btn-secondary-border);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.issue-details-page .back-btn:active{
+    background-color: var(--btn-secondary-active-bg);
+}
+
+.issue-details-page .back-btn i{
+    font-size: clamp(14px, 1.2vw, 18px);
+}
+
+.issue-details-page .title-section{
+    margin-top: clamp(18px, 2.5vw, 25px);
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: clamp(22px, 2vw, 26px);
+}
+
+.issue-details-page .title-section .issue-header-content{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.issue-details-page .title-section .issue-header-top{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: clamp(20px, 1vw, 26px);
+}
+
+.issue-details-page .title-section .issue-title-text{
+    font-size: clamp(15px, 1.3vw, 18px);
+    color: var(--body-text-secondary);
+    font-weight: 500;
+}
+
+.issue-details-page .title-section .btns{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 1vw, 12px);
+}
+
+.issue-details-page .title-section .btns button{
+    padding: clamp(8px, 0.8vw, 10px) clamp(12px, 1.2vw, 16px);
+    display: flex;
+    align-items: center;
+    gap: clamp(4px, 0.5vw, 6px);
+    font-size: clamp(13px, 1vw, 14px);
+    font-weight: 500;
+    border-radius: clamp(4px, 0.5vw, 6px);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.issue-details-page .title-section .btns button i{
+    font-size: 16px;
+}
+
+.issue-details-page .title-section .btns button.start-maintenance-btn{
+    background-color: var(--start-maint-btn-bg);
+    color: var(--start-maint-btn-color);
+    border: 1px solid transparent;
+}
+
+.issue-details-page .title-section .btns button.start-maintenance-btn:active{
+    background-color: var(--start-maint-btn-active-bg);
+}
+
+.issue-details-page .title-section .btns button.resolve-btn{
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-primary-color);
+    border: var(--btn-primary-border);
+}
+
+.issue-details-page .title-section .btns button.resolve-btn:active{
+    background-color: var(--btn-primary-active-bg);
+}
+
+.issue-details-page .title-section .issue-id{
+    text-transform: uppercase;
+    font-size: clamp(26px, 2.2vw, 32px);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.issue-details-page .title-section .issue-status{
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 0.6vw, 8px);
+    padding: clamp(7px, 0.6vw, 8px) clamp(13px, 1.2vw, 18px);
+    font-size: clamp(14px, 1.1vw, 17px);
+    border-radius: 999px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.issue-details-page .title-section .issue-status.operational, .issue-details-page .title-section .issue-status.resolved{
+    background-color: var(--status-resolved-bg);
+    color: var(--status-resolved-text);
+}
+
+.issue-details-page .title-section .issue-status.issue-reported{
+    background-color: var(--status-issue-bg);
+    color: var(--status-issue-text);
+}
+
+.issue-details-page .title-section .issue-status.under-maintenance{
+    background-color: var(--status-under-maintenance-bg);
+    color: var(--status-under-maintenance-text);
+}
+
+.issue-details-page .title-section .issue-status .dot{
+    border: clamp(3px, 0.3vw, 4px) solid;
+    border-radius: 50%;
+}
+
+.issue-details-page .title-section .issue-status.operational .dot, .issue-details-page .title-section .issue-status.resolved .dot{
+    border-color: var(--status-resolved-dot);
+}
+
+.issue-details-page .title-section .issue-status.issue-reported .dot{
+    border-color: var(--status-issue-dot);
+}
+
+.issue-details-page .title-section .issue-status.under-maintenance .dot{
+    border-color: var(--status-under-maintenance-dot);
+}
+
+.issue-details-page .issue-details-and-timeline{
+    margin-top: clamp(20px, 2.5vw, 30px);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(15px, 1.8vw, 20px);
+    align-items: flex-start;
+}
+
+.issue-details-page .issue-details-section{
+    flex: 1 1 550px;
+    min-width: 0;
+}
+
+.issue-details-page .section-header{
+    margin-bottom: clamp(8px, 0.8vw, 10px);
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 0.6vw, 8px);
+    text-transform: capitalize;
+    font-size: clamp(15px, 1.3vw, 18px);
+    font-weight: 500;
+}
+
+.issue-details-page .section-header i{
+    font-size: clamp(22px, 2vw, 28px);
+    color: var(--section-icon-color);
+}
+
+.issue-details-page .issue-details-section .issue-details-card{
+    padding: clamp(14px, 1.5vw, 20px) clamp(14px, 1.5vw, 20px) clamp(4px, 0.5vw, 5px) clamp(14px, 1.5vw, 20px);
+    border-radius: clamp(6px, 0.8vw, 8px);
+    background-color: var(--card-bg);
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+}
+
+.issue-details-page .issue-details-section .issue-details-card .detail{
+    height: clamp(52px, 4.5vw, 60px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    text-transform: capitalize;
+    border-bottom: var(--divider);
+}
+
+.issue-details-page .issue-details-section .issue-details-card .detail:last-child{
+    border-bottom: none;
+}
+
+.issue-details-page .issue-details-section .issue-details-card .detail .key{
+    color: var(--label-color);
+    font-size: clamp(13px, 1vw, 15px);
+    width: 50%;
+}
+
+.issue-details-page .issue-details-section .issue-details-card .detail .value{
+    width: 50%;
+    color: var(--value-color);
+    font-size: clamp(13px, 1vw, 15px);
+}
+
+.issue-details-page .priority-badge{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: clamp(12px, 1vw, 13px);
+    width: fit-content;
+    font-weight: 500;
+}
+
+.issue-details-page .priority-badge .dot{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.issue-details-page .priority-badge.critical{
+    background-color: var(--priority-critical-bg);
+    color: var(--priority-critical-text);
+}
+
+.issue-details-page .priority-badge.critical .dot{
+    background-color: var(--priority-critical-dot);
+}
+
+.issue-details-page .priority-badge.high{
+    background-color: var(--priority-high-bg);
+    color: var(--priority-high-text);
+}
+
+.issue-details-page .priority-badge.high .dot{
+    background-color: var(--priority-high-dot);
+}
+
+.issue-details-page .priority-badge.medium{
+    background-color: var(--priority-medium-bg);
+    color: var(--priority-medium-text);
+}
+
+.issue-details-page .priority-badge.medium .dot{
+    background-color: var(--priority-medium-dot);
+}
+
+.issue-details-page .priority-badge.low{
+    background-color: var(--priority-low-bg);
+    color: var(--priority-low-text);
+}
+
+.issue-details-page .priority-badge.low .dot{
+    background-color: var(--priority-low-dot);
+}
+
+.issue-details-page .description-card{
+    margin-top: clamp(15px, 2vw, 20px);
+    padding: clamp(16px, 1.5vw, 20px);
+    border-radius: clamp(6px, 0.8vw, 8px);
+    background-color: var(--card-bg);
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+}
+
+.issue-details-page .description-box{
+    margin-top: clamp(10px, 1vw, 14px);
+    padding: clamp(14px, 1.2vw, 18px) clamp(16px, 1.5vw, 20px);
+    background-color: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+}
+
+.issue-details-page .description-text{
+    font-size: clamp(13px, 1vw, 15px);
+    color: #334155;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.issue-details-page .affected-asset-card{
+    margin-top: clamp(15px, 2vw, 20px);
+    padding: clamp(14px, 1.5vw, 20px);
+    padding-bottom: clamp(6px, 1.5vw, 10px);
+    border-radius: clamp(6px, 0.8vw, 8px);
+    background-color: var(--card-bg);
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+}
+
+.issue-details-page .affected-asset-card .detail{
+    height: clamp(48px, 4vw, 55px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    border-bottom: var(--divider);
+}
+
+.issue-details-page .affected-asset-card .detail:last-of-type{
+    border-bottom: none;
+}
+
+.issue-details-page .affected-asset-card .detail .key{
+    text-transform: capitalize;
+    color: var(--label-color);
+    font-size: clamp(13px, 1vw, 15px);
+    width: 50%;
+}
+
+.issue-details-page .affected-asset-card .detail .value{
+    text-transform: capitalize;
+    width: 50%;
+    color: var(--value-color);
+    font-size: clamp(13px, 1vw, 15px);
+}
+
+.issue-details-page .affected-asset-card .detail .value .condition{
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: clamp(4px, 0.5vw, 6px);
+    padding: clamp(4px, 0.5vw, 6px) clamp(10px, 1vw, 16px);
+    border-radius: 999px;
+}
+
+.issue-details-page .affected-asset-card .detail .value .condition .dot{
+    border: clamp(2.5px, 0.25vw, 3.5px) solid;
+    border-radius: 50%;
+}
+
+.issue-details-page .affected-asset-card .detail .value .condition.excellent{
+    background-color: var(--condition-excellent-bg);
+    color: var(--condition-excellent-text);
+}
+
+.issue-details-page .affected-asset-card .detail .value .condition.excellent .dot{
+    border-color: var(--condition-excellent-dot);
+}
+
+.issue-details-page .affected-asset-card .detail .value .condition.good{
+    background-color: var(--condition-good-bg);
+    color: var(--condition-good-text);
+}
+
+.issue-details-page .affected-asset-card .detail .value .condition.good .dot{
+    border-color: var(--condition-good-dot);
+}
+
+.issue-details-page .affected-asset-card .detail .value .condition.fair{
+    background-color: var(--condition-fair-bg);
+    color: var(--condition-fair-text);
+}
+
+.issue-details-page .affected-asset-card .detail .value .condition.fair .dot{
+    border-color: var(--condition-fair-dot);
+}
+
+.issue-details-page .affected-asset-card .detail .value .condition.poor{
+    background-color: var(--condition-poor-bg);
+    color: var(--condition-poor-text);
+}
+
+.issue-details-page .affected-asset-card .detail .value .condition.poor .dot{
+    border-color: var(--condition-poor-dot);
+}
+
+.issue-details-page .affected-asset-card .btns{
+    margin-top: clamp(16px, 1.8vw, 20px);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.issue-details-page .affected-asset-card .btns button{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    font-size: clamp(13px, 1vw, 14px);
+    font-weight: 500;
+    border-radius: clamp(4px, 0.5vw, 6px);
+    background-color: var(--btn-secondary-bg);
+    color: var(--btn-secondary-color);
+    border: var(--btn-secondary-border);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.issue-details-page .affected-asset-card .btns button:active{
+    background-color: var(--btn-secondary-active-bg);
+}
+
+.issue-details-page .issue-timeline-section{
+    flex: 1 1 320px;
+    max-width: 430px;
+    padding: clamp(14px, 1.5vw, 20px);
+    background-color: var(--card-bg);
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+    border-radius: clamp(8px, 1vw, 10px);
+    display: flex;
+    flex-direction: column;
+}
+
+.issue-details-page .issue-timeline-section .timeline{
+    flex: 1;
+    overflow-y: auto;
+    margin-top: clamp(18px, 2vw, 25px);
+}
+
+.issue-details-page .issue-timeline-section .timeline::-webkit-scrollbar{
+    width: 0;
+}
+
+.issue-details-page .issue-timeline-section .timeline:hover::-webkit-scrollbar{
+    width: 5px;
+}
+
+.issue-details-page .issue-timeline-section .timeline .timeline-item{
+    margin-left: clamp(8px, 0.8vw, 11px);
+    display: flex;
+    gap: clamp(18px, 2vw, 25px);
+    padding-bottom: clamp(20px, 2.2vw, 30px);
+    border-left: 3px dashed var(--timeline-line);
+}
+
+.issue-details-page .issue-timeline-section .timeline .timeline-item:last-child{
+    padding-bottom: 0;
+}
+
+.issue-details-page .issue-timeline-section .timeline .timeline-item .dot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: clamp(-11px, -0.8vw, -9px);
+    width: clamp(16px, 1.4vw, 20px);
+    height: clamp(16px, 1.4vw, 20px);
+    border-radius: 50%;
+    background-color: var(--timeline-dot-bg);
+    border: var(--timeline-dot-border);
+    outline: 3px solid var(--card-bg);
+}
+
+.issue-details-page .issue-timeline-section .timeline .timeline-item .dot span{
+    border: 4px solid var(--timeline-dot-active);
+    border-radius: 50%;
+}
+
+.issue-details-page .issue-timeline-section .timeline .timeline-item .content .title{
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: clamp(13px, 1.1vw, 16px);
+}
+
+.issue-details-page .issue-timeline-section .timeline .timeline-item .content .time{
+    color: var(--body-text-secondary);
+    font-size: clamp(10px, 0.9vw, 12px);
+}
+
+@media (max-width: 900px){
+    .issue-details-page .issue-timeline-section{
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 400px){
+    .issue-details-page, .issue-details-page *{
+        cursor: default !important;
+    }
+
+    .issue-details-page .title-section .btns{
+        flex-direction: row;
+    }
+}

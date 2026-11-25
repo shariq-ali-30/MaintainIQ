@@ -1,0 +1,323 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/* Tailwind utilities are available to React components. Preflight is intentionally
+   disabled so the preserved original CSS keeps its existing visual defaults. */
+
+.app-loading {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--body-bg, #f8fafc);
+}
+
+.button-spinner {
+  --spinner-thickness: 5px;
+  position: relative;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.button-spinner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    currentColor 0deg 112deg,
+    transparent 112deg 150deg,
+    currentColor 150deg 265deg,
+    transparent 265deg 300deg,
+    currentColor 300deg 360deg
+  );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - var(--spinner-thickness) - 1px),
+    #000 calc(100% - var(--spinner-thickness))
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - var(--spinner-thickness) - 1px),
+    #000 calc(100% - var(--spinner-thickness))
+  );
+  animation: maintainiq-spin 10s linear infinite;
+}
+
+.button-spinner::after {
+  content: "";
+  position: absolute;
+  width: 24%;
+  height: 24%;
+  left: 38%;
+  top: 38%;
+  border-radius: 50%;
+  background: currentColor;
+  animation: maintainiq-spinner-pulse 1.8s ease-in-out infinite;
+}
+
+.button-spinner-small {
+  --spinner-thickness: 3px;
+  width: 19px;
+  height: 19px;
+}
+
+.app-loading .button-spinner {
+  --spinner-thickness: 6px;
+  width: 58px;
+  height: 58px;
+  color: #16a34a;
+}
+
+@keyframes maintainiq-spinner-pulse {
+  0%, 100% { transform: scale(.72); opacity: .55; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+@keyframes maintainiq-spin {
+  to { transform: rotate(360deg); }
+}
+
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  cursor: not-allowed !important;
+  opacity: .82;
+}
+
+button:disabled {
+  filter: saturate(.92);
+}
+
+input.error,
+input.error:focus,
+select.error,
+select.error:focus,
+textarea.error,
+textarea.error:focus {
+  border: 1.5px solid #dc2626 !important;
+  outline: none;
+}
+
+.input-wrapper input:disabled {
+  background: #fbfdfc;
+  color: #64748b;
+  border-color: #dce8df;
+  opacity: .92;
+}
+
+.login-btn:disabled {
+  background: var(--btn-primary-bg, #16a34a);
+  color: #fff;
+  opacity: .72;
+  cursor: not-allowed;
+}
+
+.empty-state {
+  width: 100%;
+  min-height: 250px;
+  margin: clamp(16px, 2vw, 22px) 0;
+  padding: clamp(28px, 4vw, 42px) 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  background: var(--card-bg, #fff);
+  border: 1px dashed #cbd5e1;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, .045);
+}
+
+.empty-state-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  border-radius: 18px;
+  background: #ecfdf3;
+  color: #16a34a;
+  font-size: 30px;
+}
+
+.empty-state h3 {
+  color: #111827;
+  font-size: clamp(16px, 1.4vw, 19px);
+  font-weight: 650;
+}
+
+.empty-state p {
+  max-width: 420px;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.modal-btns button {
+  min-height: 40px;
+  padding-top: 7px !important;
+  padding-bottom: 7px !important;
+}
+
+.add-new-asset-modal .modal-btns button,
+.edit-asset-modal .modal-btns button,
+.retire-asset-modal .modal-btns button {
+  min-height: 40px;
+}
+
+.button-spinner,
+.app-loading .button-spinner {
+  vertical-align: middle;
+}
+
+/* Async buttons keep their original label width while the spinner is visible. */
+.async-action-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.async-button-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.async-button-indicator {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.async-action-button:disabled {
+  opacity: .82;
+  filter: saturate(.92);
+}
+
+.input-wrapper input:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  background-color: #fbfdfc;
+  border-color: #dce8df;
+  color: #64748b;
+  opacity: .92;
+}
+
+.login-btn:disabled {
+  background-color: var(--btn-primary-bg, #16a34a);
+  color: #fff;
+  opacity: .72;
+}
+
+.modal-btns button {
+  min-height: 40px;
+}
+
+
+/* Shared document-level styles. Page-specific tokens are scoped to each page wrapper. */
+:root {
+  --toast-bg: #FFFFFF;
+  --toast-color: #111827;
+  --toast-border: 1px solid #E7ECF2;
+  --toast-shadow: 0 12px 30px rgba(15, 23, 42, .12);
+  --toast-success-icon-color: #16A34A;
+  --toast-error-icon-color: #DC2626;
+  --scrollbar-track-bg: #F1F5F9;
+  --scrollbar-thumb-bg: #CBD5E1;
+  --scrollbar-thumb-hover-bg: #94A3B8;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+.login-page,
+.dashboard-page,
+.issues-page,
+.asset-details-page,
+.issue-details-page,
+.public-asset-page {
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background-color: var(--scrollbar-thumb-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover-bg);
+}
+
+.toast,
+.toast * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.toast {
+  font-family: "Inter", sans-serif;
+  padding: clamp(10px, 1.2vw, 14px) clamp(16px, 1.8vw, 20px);
+  position: fixed;
+  z-index: 5;
+  top: clamp(15px, 2.5vw, 25px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-75px) scale(0.2);
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1vw, 10px);
+  font-size: clamp(13px, 1.1vw, 15px);
+  background-color: var(--toast-bg);
+  border: var(--toast-border);
+  border-radius: clamp(6px, 0.8vw, 8px);
+  color: var(--toast-color);
+  box-shadow: var(--toast-shadow);
+  white-space: nowrap;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toast.active {
+  transform: translateX(-50%) translateY(0px) scale(1);
+}
+
+.toast i {
+  font-size: clamp(18px, 1.8vw, 22px);
+  color: var(--toast-error-icon-color);
+}
+
+.toast i.fa-circle-check {
+  color: var(--toast-success-icon-color);
+}
+
+.toast.error i.fa-circle-xmark {
+  color: var(--toast-error-icon-color);
+}

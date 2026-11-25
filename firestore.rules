@@ -1,0 +1,109 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+    function userProfilePath(uid) {
+      return /databases/$(database)/documents/users/$(uid);
+    }
+    function hasProfile() {
+      return signedIn() && exists(userProfilePath(request.auth.uid));
+    }
+    function isAdmin() {
+      return hasProfile() && get(userProfilePath(request.auth.uid)).data.role == "admin";
+    }
+    function isStaff() {
+      return hasProfile() && get(userProfilePath(request.auth.uid)).data.role in ["admin", "technician"];
+    }
+    function isAnonymous() {
+      return signedIn() && request.auth.token.firebase.sign_in_provider == "anonymous";
+    }
+    function isPublicAsset(assetId) {
+      let assetPath = /databases/$(database)/documents/assets/$(assetId);
+      return exists(assetPath) && get(assetPath).data.isPublic == true;
+    }
+    function validPublicIssue() {
+      return isAnonymous()
+        && request.resource.data.keys().hasAll([
+          "id", "title", "description", "status", "priority", "reporterName",
+          "date", "assetCode", "assetName", "createdAt"
+        ])
+        && request.resource.data.keys().hasOnly([
+          "id", "title", "description", "status", "priority", "reporterName",
+          "date", "assetCode", "assetName", "createdAt"
+        ])
+        && request.resource.data.id is int
+        && request.resource.data.title is string
+        && request.resource.data.title.size() > 0
+        && request.resource.data.title.size() <= 120
+        && request.resource.data.description is string
+        && request.resource.data.description.size() > 0
+        && request.resource.data.description.size() <= 2000
+        && request.resource.data.reporterName is string
+        && request.resource.data.reporterName.size() > 0
+        && request.resource.data.reporterName.size() <= 80
+        && request.resource.data.date is string
+        && request.resource.data.assetCode is string
+        && request.resource.data.assetName is string
+        && request.resource.data.createdAt is timestamp
+        && request.resource.data.status == "Issue Reported"
+        && request.resource.data.priority in ["Low", "Medium", "High", "Critical"]
+        && isPublicAsset("asset-" + request.resource.data.assetCode);
+    }
+
+    match /users/{userId} {
+      allow read: if signedIn() && (request.auth.uid == userId || isAdmin());
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /meta/counters {
+      allow read: if isStaff() || isAnonymous();
+      // A public report may be submitted anonymously or by a signed-in staff member.
+      // Non-admin users can only initialize/increment issueCode, never assetCode.
+      allow create: if isAdmin() || (
+        (isAnonymous() || isStaff())
+        && request.resource.data.keys().hasOnly(["issueCode"])
+        && request.resource.data.issueCode is int
+        && request.resource.data.issueCode == 1001
+      );
+      allow delete: if isAdmin();
+      allow update: if isAdmin() || (
+        (isAnonymous() || isStaff())
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(["issueCode"])
+        && request.resource.data.issueCode is int
+        && (
+          !("issueCode" in resource.data)
+          ? request.resource.data.issueCode == 1001
+          : request.resource.data.issueCode == resource.data.issueCode + 1
+        )
+      );
+    }
+    match /meta/{metaId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /assets/{assetId} {
+      allow read: if isStaff() || resource.data.isPublic == true;
+      allow create, delete: if isAdmin();
+      allow update: if isStaff()
+        || (isAnonymous()
+          && resource.data.isPublic == true
+          && request.resource.data.status == "Issue Reported"
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(["status", "history", "updatedAt"])
+          && request.resource.data.history is list
+          && request.resource.data.history.size() == resource.data.history.size() + 1
+          && request.resource.data.history[0].activity is string
+          && request.resource.data.history[0].activity.size() <= 160
+          && request.resource.data.history[0].time is string
+          && request.resource.data.history[0].time.size() <= 64);
+    }
+
+    match /issues/{issueId} {
+      allow read: if isStaff();
+      allow create: if isStaff() || validPublicIssue();
+      allow update: if isStaff();
+      allow delete: if isAdmin();
+    }
+  }
+}

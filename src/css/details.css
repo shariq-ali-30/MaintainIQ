@@ -1,0 +1,969 @@
+.asset-details-page{
+
+    /* BODY */
+
+    --body-bg: #FFFFFF;
+    --body-text: #111827;
+    --body-text-secondary: #6B7280;
+
+    /* TOAST */
+
+    --toast-bg: #FFFFFF;
+    --toast-color: #111827;
+    --toast-border: 1px solid #E7ECF2;
+    --toast-shadow: 0 12px 30px rgba(15, 23, 42, .12);
+
+    /* SUCCESS TOAST */
+
+    --toast-success-icon-color: #16A34A;
+
+    /* ERROR TOAST */
+
+    --toast-error-icon-color: #DC2626;
+
+    /* SCROLLBAR */
+
+    --scrollbar-track-bg: #F1F5F9;
+    --scrollbar-thumb-bg: #CBD5E1;
+    --scrollbar-thumb-hover-bg: #94A3B8;
+
+    /* MODAL */
+
+    --modal-overlay-bg: rgba(15, 23, 42, .5);
+
+    --modal-bg: #FFFFFF;
+    --modal-border: 1px solid #E7ECF2;
+    --modal-shadow: 0 24px 60px rgba(15, 23, 42, .18);
+
+    --modal-separator-border: 1.5px solid #EEF2F6;
+
+    --modal-title: #111827;
+    --modal-subtitle: #6B7280;
+
+    /* MODAL ICON */
+
+    --modal-icon-bg: #EAF8F0;
+    --modal-icon-color: #16A34A;
+
+    /* FORM LABELS */
+
+    --form-label-color: #374151;
+
+    /* INPUT */
+
+    --input-bg: #FFFFFF;
+    --input-border: 1.5px solid #E5E7EB;
+
+    --input-focus-border: 1.5px solid #16A34A;
+
+    /* EDIT BUTTON */
+
+    --edit-btn-bg: #16A34A;
+    --edit-btn-color: #FFFFFF;
+    --edit-btn-border: 1px solid transparent;
+    --edit-btn-active-bg: #15803D;
+
+    /* RETIRE BUTTON */
+
+    --retire-btn-bg: #DC2626;
+    --retire-btn-color: #FFFFFF;
+    --retire-btn-border: 1px solid transparent;
+    --retire-btn-active-bg: #B91C1C;
+
+    /* CARD */
+
+    --card-bg: #FFFFFF;
+    --card-border: 1px solid #E7ECF2;
+    --card-shadow: 0 2px 12px rgba(15, 23, 42, .06);
+
+    /* SECTION TITLE */
+
+    --section-icon-color: #16A34A;
+
+    /* DIVIDER */
+
+    --divider: 1.5px solid #EEF2F6;
+
+    /* LABELS */
+
+    --label-color: #6B7280;
+    --value-color: #111827;
+
+    /* CONDITION */
+
+    --condition-excellent-bg: #DCFCE7;
+    --condition-excellent-text: #166534;
+    --condition-excellent-dot: #16A34A;
+
+    --condition-good-bg: #EAF8F0;
+    --condition-good-text: #15803D;
+    --condition-good-dot: #16A34A;
+
+    --condition-fair-bg: #FFF8E6;
+    --condition-fair-text: #D97706;
+    --condition-fair-dot: #F59E0B;
+
+    --condition-poor-bg: #FEE2E2;
+    --condition-poor-text: #DC2626;
+    --condition-poor-dot: #EF4444;
+
+    /* QR */
+
+    --qr-border: 1px solid #E7ECF2;
+
+    /* TIMELINE */
+
+    --timeline-line: #DDE5ED;
+    --timeline-dot-bg: #FFFFFF;
+    --timeline-dot-border: 1.5px solid #D7F3E2;
+    --timeline-dot-active: #16A34A;
+
+    /* STATUS */
+
+    --status-operational-bg: #EAF8F0;
+    --status-operational-text: #15803D;
+    --status-operational-dot: #16A34A;
+
+    --status-maintenance-bg: #FFF1EC;
+    --status-maintenance-text: #EA580C;
+    --status-maintenance-dot: #F97316;
+
+    --status-issue-bg: #FFF8E6;
+    --status-issue-text: #D97706;
+    --status-issue-dot: #F59E0B;
+
+    /* BUTTON PRIMARY */
+
+    --btn-primary-bg: #16A34A;
+    --btn-primary-color: #FFFFFF;
+    --btn-primary-border: 1px solid transparent;
+    --btn-primary-active-bg: #179345;
+
+    /* BUTTON SECONDARY */
+
+    --btn-secondary-bg: #FFFFFF;
+    --btn-secondary-color: #374151;
+    --btn-secondary-border: 1.5px solid #E5E7EB;
+    --btn-secondary-active-bg: #F8FAFC;
+
+    /* Download BUTTON */
+
+    --download-btn-bg: #FFFFFF;
+    --download-btn-color: #16A34A;
+    --download-btn-border: 1.5px solid #16A34A;
+    --download-btn-active-bg: #EAF8F0;
+
+    /* NOT FOUND STATE */
+    --not-found-icon-bg: #EAF8F0;
+    --not-found-icon-color: #16A34A;
+    --not-found-title: #111827;
+    --not-found-desc: #6B7280;
+}
+
+.asset-details-page, .asset-details-page *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.asset-details-page {
+    font-family: "Inter", sans-serif;
+}
+
+.asset-details-page ::-webkit-scrollbar{
+    width: 8px;
+}
+
+.asset-details-page ::-webkit-scrollbar-track{
+    background-color: var(--scrollbar-track-bg);
+}
+
+.asset-details-page ::-webkit-scrollbar-thumb{
+    border-radius: 999px;
+    background-color: var(--scrollbar-thumb-bg);
+}
+
+.asset-details-page ::-webkit-scrollbar-thumb:hover{
+    background-color: var(--scrollbar-thumb-hover-bg);
+}
+
+.asset-details-page{
+    background-color: var(--body-bg);
+    color: var(--body-text);
+    padding-bottom: clamp(20px, 3vw, 30px);
+}
+
+.asset-details-page .container{
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 0 clamp(12px, 3vw, 30px);
+}
+
+/* Toast */
+
+
+
+
+
+
+
+
+
+
+
+/* Modal */
+
+.asset-details-page .modal-overlay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-overlay-bg);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.asset-details-page .modal-overlay.active{
+    visibility: initial;
+    opacity: 1;
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal{
+    width: 100%;
+    max-width: 500px;
+    padding: clamp(12px, 2vw, 20px);
+    background-color: var(--modal-bg);
+    border: var(--modal-border);
+    border-radius: clamp(10px, 1.2vw, 12px);
+    box-shadow: var(--modal-shadow);
+    transform: translateY(-30px) scale(0.96);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+}
+
+.asset-details-page .modal-overlay.active .edit-asset-modal{
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .modal-header{
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 1.5vw, 16px);
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .modal-header .icon-circle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: clamp(50px, 5.5vw, 60px);
+    width: clamp(50px, 5.5vw, 60px);
+    border-radius: 50%;
+    font-size: clamp(24px, 2.2vw, 28px);
+    background-color: var(--modal-icon-bg);
+    color: var(--modal-icon-color);
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .modal-header .modal-title{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .modal-header .modal-title h2{
+    color: var(--modal-title);
+    font-size: clamp(20px, 2.2vw, 24px);
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .modal-header .modal-title p{
+    font-size: clamp(12px, 1.2vw, 14px);
+    color: var(--modal-subtitle);
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .hr{
+    border-bottom: var(--modal-separator-border);
+    margin-top: clamp(14px, 1.5vw, 18px);
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .input-fields{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .input-fields label{
+    margin-top: clamp(14px, 1.5vw, 18px);
+    margin-bottom: 6px;
+    font-size: clamp(12px, 1.2vw, 14px);
+    font-weight: 500;
+    color: var(--form-label-color);
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .input-fields div{
+    width: 100%;
+    position: relative;
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .input-fields div i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 12px;
+    color: var(--select-arrow);
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .input-fields input, .asset-details-page .modal-overlay .edit-asset-modal .input-fields select{
+    text-transform: capitalize;
+    width: 100%;
+    height: 45px;
+    padding: 0 12px;
+    border: var(--input-border);
+    border-radius: clamp(6px, 0.8vw, 8px);
+    background-color: var(--input-bg);
+    outline: none;
+    appearance: none;
+    transition: border 0.2s ease;
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .input-fields input::placeholder{
+    text-transform: initial;
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .input-fields input.error{
+    border-color: var(--toast-error-icon-color);
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .input-fields select{
+    text-transform: capitalize;
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .input-fields input:focus{
+    border: var(--input-focus-border);
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .modal-btns{
+    margin-top: clamp(22px, 2.5vw, 28px);
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 8px;
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .modal-btns button{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px clamp(12px, 1.5vw, 16px);
+    font-size: 14px;
+    border-radius: clamp(4px, 0.5vw, 6px);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .modal-btns .cancel-btn{
+    background-color: var(--btn-secondary-bg);
+    border: var(--btn-secondary-border);
+    color: var(--btn-secondary-color);
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .modal-btns .cancel-btn:active{
+    background-color: var(--btn-secondary-active-bg);
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .modal-btns .save-changes-btn{
+    background-color: var(--btn-primary-bg);
+    border: var(--btn-primary-border);
+    color: var(--btn-primary-color);
+}
+
+.asset-details-page .modal-overlay .edit-asset-modal .modal-btns .save-changes-btn:active{
+    background-color: var(--btn-primary-active-bg);
+}
+
+/* Retire Confirmation Modal */
+
+.asset-details-page .modal-overlay .retire-asset-modal{
+    width: 100%;
+    max-width: 500px;
+    padding: clamp(16px, 2vw, 20px);
+    background-color: var(--modal-bg);
+    border: var(--modal-border);
+    border-radius: clamp(10px, 1.2vw, 12px);
+    box-shadow: var(--modal-shadow);
+    transform: translateY(-30px) scale(0.96);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+}
+
+.asset-details-page .modal-overlay.active .retire-asset-modal{
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.asset-details-page .modal-overlay .retire-asset-modal .modal-header{
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 1.5vw, 16px);
+}
+
+.asset-details-page .modal-overlay .retire-asset-modal .modal-header .icon-circle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: clamp(50px, 5.5vw, 60px);
+    width: clamp(50px, 5.5vw, 60px);
+    border-radius: 50%;
+    font-size: clamp(24px, 2.2vw, 28px);
+    background-color: #FEE2E2;
+    color: var(--retire-btn-bg);
+}
+
+.asset-details-page .modal-overlay .retire-asset-modal .modal-header .modal-title{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.asset-details-page .modal-overlay .retire-asset-modal .modal-header .modal-title h2{
+    color: var(--modal-title);
+    font-size: clamp(20px, 2.2vw, 24px);
+}
+
+.asset-details-page .modal-overlay .retire-asset-modal .modal-header .modal-title p{
+    max-width: 300px;
+    font-size: clamp(12px, 1.2vw, 14px);
+    color: var(--modal-subtitle);
+}
+
+.asset-details-page .modal-overlay .retire-asset-modal .hr{
+    border-bottom: var(--modal-separator-border);
+    margin: clamp(14px, 1.5vw, 18px) 0;
+}
+
+.asset-details-page .modal-overlay .retire-asset-modal .retire-asset-content{
+    margin-top: clamp(14px, 1.5vw, 18px);
+}
+
+.asset-details-page .modal-overlay .retire-asset-modal .retire-asset-content p{
+    color: var(--body-text-secondary);
+    font-size: clamp(14px, 1.2vw, 15px);
+    line-height: 1.7;
+}
+
+.asset-details-page .modal-overlay .retire-asset-modal .modal-btns{
+    margin-top: clamp(22px, 2.5vw, 28px);
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 8px;
+}
+
+.asset-details-page .modal-overlay .retire-asset-modal .modal-btns button{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: clamp(8px, 1vw, 10px) clamp(12px, 1.5vw, 16px);
+    font-size: 14px;
+    border-radius: clamp(4px, 0.5vw, 6px);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.asset-details-page .modal-overlay .retire-asset-modal .modal-btns .cancel-btn{
+    background-color: var(--btn-secondary-bg);
+    border: var(--btn-secondary-border);
+    color: var(--btn-secondary-color);
+}
+
+.asset-details-page .modal-overlay .retire-asset-modal .modal-btns .cancel-btn:active{
+    background-color: var(--btn-secondary-active-bg);
+}
+
+.asset-details-page .modal-overlay .retire-asset-modal .modal-btns .retire-confirm-btn{
+    background-color: var(--retire-btn-bg);
+    border: var(--retire-btn-border);
+    color: var(--retire-btn-color);
+}
+
+.asset-details-page .modal-overlay .retire-asset-modal .modal-btns .retire-confirm-btn:active{
+    background-color: var(--retire-btn-active-bg);
+}
+
+/* Asset Not Found Container */
+
+.asset-details-page .not-found-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--body-bg, red);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: clamp(40px, 8vw, 80px) clamp(16px, 2vw, 24px);
+    height: 100vh;
+    width: 100%;
+}
+
+.asset-details-page .not-found-container .icon-circle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: clamp(80px, 7vw, 90px);
+    height: clamp(80px, 7vw, 90px);
+    border-radius: 50%;
+    background-color: var(--not-found-icon-bg, #EAF8F0);
+    color: var(--not-found-icon-color, #16A34A);
+    font-size: clamp(36px, 3vw, 40px);
+    margin-bottom: clamp(16px, 2vw, 24px);
+}
+
+.asset-details-page .not-found-container .not-found-title{
+    font-size: clamp(22px, 2vw, 28px);
+    font-weight: 700;
+    color: var(--not-found-title, #111827);
+    margin-bottom: clamp(8px, 1vw, 12px);
+}
+
+.asset-details-page .not-found-container .not-found-desc{
+    font-size: clamp(13px, 1.1vw, 15px);
+    color: var(--not-found-desc, #6B7280);
+    line-height: 1.5;
+    max-width: 400px;
+}
+
+.asset-details-page .not-found-container a{
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 0.6vw, 8px);
+    text-decoration: none;
+    padding: clamp(8px, 0.8vw, 10px) clamp(14px, 1.5vw, 16px);
+    border-radius: clamp(4px, 0.5vw, 6px);
+    margin-top: clamp(16px, 2vw, 24px);
+    font-size: clamp(14px, 1vw, 16px);
+    font-weight: 500;
+    color: var(--download-btn-color);
+    background-color: var(--download-btn-bg);
+    border: var(--download-btn-border);
+    transition: background-color 0.2s ease;
+}
+
+.asset-details-page .not-found-container a:active{
+    background-color: var(--download-btn-active-bg);
+}
+
+.asset-details-page .not-found-container a i{
+    font-size: clamp(14px, 1.1vw, 18px);
+}
+
+/* Back Button */
+
+.asset-details-page .back-btn{
+    width: fit-content;
+    font-size: clamp(12px, 1vw, 14px);
+    display: flex;
+    align-items: center;
+    gap: clamp(4px, 0.5vw, 6px);
+    margin-top: clamp(15px, 2vw, 20px);
+    padding: clamp(6px, 0.6vw, 8px) clamp(10px, 1vw, 14px);
+    border-radius: clamp(4px, 0.5vw, 6px);
+    font-weight: 500;
+    background-color: var(--btn-secondary-bg);
+    color: var(--btn-secondary-color);
+    border: var(--btn-secondary-border);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.asset-details-page .back-btn:active{
+    background-color: var(--btn-secondary-active-bg);
+}
+
+.asset-details-page .back-btn i{
+    font-size: clamp(14px, 1.2vw, 18px);
+}
+
+/* Title Section */
+
+.asset-details-page .title-section{
+    margin-top: clamp(18px, 2.5vw, 25px);
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+    align-items: center;
+    gap: clamp(18px, 2vw, 25px);
+}
+
+.asset-details-page .title-section div{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    gap: clamp(14px, 1vw, 18px);
+}
+
+.asset-details-page .title-section .btns{
+    margin-left: auto;
+    gap: clamp(8px, 1vw, 12px);
+}
+
+.asset-details-page .title-section .btns button{
+    padding: clamp(8px, 0.8vw, 10px) clamp(12px, 1.2vw, 16px);
+    display: flex;
+    align-items: center;
+    gap: clamp(4px, 0.5vw, 6px);
+    font-size: clamp(13px, 1vw, 14px);
+    font-weight: 500;
+    border-radius: clamp(4px, 0.5vw, 6px);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.asset-details-page .title-section .btns button i{
+    font-size: 16px;
+}
+
+.asset-details-page .title-section .btns button.edit-btn{
+    background-color: var(--edit-btn-bg);
+    color: var(--edit-btn-color);
+    border: var(--edit-btn-border);
+}
+
+.asset-details-page .title-section .btns button.edit-btn:active{
+    background-color: var(--edit-btn-active-bg);
+}
+
+.asset-details-page .title-section .btns button.retire-btn{
+    background-color: var(--retire-btn-bg);
+    color: var(--retire-btn-color);
+    border: var(--retire-btn-border);
+}
+
+.asset-details-page .title-section .btns button.retire-btn:active{
+    background-color: var(--retire-btn-active-bg);
+}
+
+.asset-details-page .title-section .asset-name{
+    text-transform: capitalize;
+    font-size: clamp(28px, 2.2vw, 32px);
+}
+
+.asset-details-page .title-section .asset-status{
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 0.6vw, 8px);
+    padding: clamp(7px, 0.6vw, 8px) clamp(13px, 1.2vw, 18px);
+    font-size: clamp(14px, 1.1vw, 17px);
+    border-radius: 999px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.asset-details-page .title-section .asset-status.operational{
+    background-color: var(--status-operational-bg);
+    color: var(--status-operational-text);
+}
+
+.asset-details-page .title-section .asset-status.issue-reported{
+    background-color: var(--status-issue-bg);
+    color: var(--status-issue-text);
+}
+
+.asset-details-page .title-section .asset-status.under-maintenance{
+    background-color: var(--status-maintenance-bg);
+    color: var(--status-maintenance-text);
+}
+
+.asset-details-page .title-section .asset-status .dot{
+    border: clamp(3px, 0.3vw, 4px) solid;
+    border-radius: 50%;
+}
+
+.asset-details-page .title-section .asset-status.operational .dot{
+    border-color: var(--status-operational-dot);
+}
+
+.asset-details-page .title-section .asset-status.asset-status.issue-reported .dot{
+    border-color: var(--status-issue-dot);
+}
+
+.asset-details-page .title-section .asset-status.asset-status.under-maintenance .dot{
+    border-color: var(--status-maintenance-dot);
+}
+
+/* Main Section */
+
+.asset-details-page .asset-details-and-timeline{
+    margin-top: clamp(20px, 2.5vw, 30px);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(15px, 1.8vw, 20px);
+}
+
+/* Asset Details Section */
+
+.asset-details-page .asset-details-section{
+    flex-grow: 1;
+}
+
+/* Technical details */
+
+.asset-details-page .asset-details-section .technical-details-card{
+    padding: clamp(14px, 1.5vw, 20px) clamp(14px, 1.5vw, 20px) clamp(4px, 0.5vw, 5px) clamp(14px, 1.5vw, 20px);
+    border-radius: clamp(6px, 0.8vw, 8px);
+    background-color: var(--card-bg);
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+}
+
+.asset-details-page .section-header{
+    margin-bottom: clamp(8px, 0.8vw, 10px);
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 0.6vw, 8px);
+    text-transform: capitalize;
+    font-size: clamp(15px, 1.3vw, 18px);
+    font-weight: 500;
+}
+
+.asset-details-page .section-header i{
+    font-size: clamp(22px, 2vw, 28px);
+    color: var(--section-icon-color);
+}
+
+.asset-details-page .asset-details-section .technical-details-card .detail{
+    height: clamp(52px, 4.5vw, 60px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    text-transform: capitalize;
+    border-bottom: var(--divider);
+}
+
+.asset-details-page .asset-details-section .technical-details-card .detail:last-child{
+    border-bottom: none;
+}
+
+.asset-details-page .asset-details-section .technical-details-card .detail .key{
+    color: var(--label-color);
+    font-size: clamp(13px, 1vw, 15px);
+    width: 50%;
+}
+
+.asset-details-page .asset-details-section .technical-details-card .detail .value{
+    width: 50%;
+    color: var(--value-color);
+    font-size: clamp(13px, 1vw, 15px);
+}
+
+.asset-details-page .asset-details-section .technical-details-card .detail .value .condition{
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: clamp(4px, 0.5vw, 6px);
+    padding: clamp(4px, 0.5vw, 6px) clamp(10px, 1vw, 16px);
+    border-radius: 999px;
+}
+
+.asset-details-page .asset-details-section .technical-details-card .detail .value .condition .dot{
+    border: clamp(2.5px, 0.25vw, 3.5px) solid;
+    border-radius: 50%;
+}
+
+.asset-details-page .asset-details-section .technical-details-card .detail .value .condition.excellent{
+    background-color: var(--condition-excellent-bg);
+    color: var(--condition-excellent-text);
+}
+
+.asset-details-page .asset-details-section .technical-details-card .detail .value .condition.excellent .dot{
+    border-color: var(--condition-excellent-dot);
+}
+
+.asset-details-page .asset-details-section .technical-details-card .detail .value .condition.good{
+    background-color: var(--condition-good-bg);
+    color: var(--condition-good-text);
+}
+
+.asset-details-page .asset-details-section .technical-details-card .detail .value .condition.good .dot{
+    border-color: var(--condition-good-dot);
+}
+
+.asset-details-page .asset-details-section .technical-details-card .detail .value .condition.fair{
+    background-color: var(--condition-fair-bg);
+    color: var(--condition-fair-text);
+}
+
+.asset-details-page .asset-details-section .technical-details-card .detail .value .condition.fair .dot{
+    border-color: var(--condition-fair-dot);
+}
+
+.asset-details-page .asset-details-section .technical-details-card .detail .value .condition.poor{
+    background-color: var(--condition-poor-bg);
+    color: var(--condition-poor-text);
+}
+
+.asset-details-page .asset-details-section .technical-details-card .detail .value .condition.poor .dot{
+    border-color: var(--condition-poor-dot);
+}
+
+/* QR Code */
+
+.asset-details-page .qr-code-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: clamp(15px, 2vw, 20px);
+    background-color: var(--card-bg);
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+    border-radius: clamp(6px, 0.8vw, 8px);
+    padding: clamp(14px, 1.5vw, 20px);
+}
+
+.asset-details-page .qr-code-card .section-header{
+    margin-right: auto;
+}
+
+.asset-details-page .qr-code-card .qr-code-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: clamp(140px, 14vw, 180px);
+    height: clamp(140px, 14vw, 180px);
+    border: var(--qr-border);
+    border-radius: clamp(4px, 0.5vw, 6px);
+    margin: clamp(18px, 2vw, 25px) auto;
+    overflow: hidden;
+}
+
+.asset-details-page .qr-code-card .qr-code-container canvas, .asset-details-page .qr-code-card .qr-code-container img, .asset-details-page .qr-code-card .qr-code-container svg{
+    width: 108%;
+    height: 108%;
+}
+
+.asset-details-page .qr-code-card .btns{
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+    align-items: center;
+    gap: clamp(8px, 1vw, 16px);
+    margin: 0 auto;
+}
+
+.asset-details-page .qr-code-card .btns button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(180px, 15vw, 200px);
+    height: clamp(36px, 3vw, 44px);
+    margin: 0 auto;
+    gap: clamp(8px, 0.8vw, 12px);
+    font-size: clamp(13px, 1.1vw, 16px);
+    font-weight: 500;
+    border-radius: clamp(4px, 0.5vw, 5px);
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-primary-color);
+    border: var(--btn-primary-border);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.asset-details-page .qr-code-card button:active{
+    background-color: var(--btn-primary-active-bg);
+}
+
+.asset-details-page .qr-code-card button i{
+    font-size: clamp(18px, 1.8vw, 24px);
+}
+
+/* Asset Time Line Section */
+
+.asset-details-page .asset-timeline-section{
+    height: fit-content;
+    flex-grow: 1;
+    max-width: 430px;
+    padding: clamp(14px, 1.5vw, 20px);
+    background-color: var(--card-bg);
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+    border-radius: clamp(8px, 1vw, 10px);
+}
+
+.asset-details-page .asset-timeline-section .timeline{
+    max-height: 498px;
+    overflow-y: auto;
+    margin-top: clamp(18px, 2vw, 25px);
+}
+
+.asset-details-page .asset-timeline-section .timeline::-webkit-scrollbar{
+    width: 0;
+}
+
+.asset-details-page .asset-timeline-section .timeline:hover::-webkit-scrollbar{
+    width: 5px;
+}
+
+.asset-details-page .asset-timeline-section .timeline .timeline-item{
+    margin-left: clamp(8px, 0.8vw, 11px);
+    display: flex;
+    gap: clamp(18px, 2vw, 25px);
+    padding-bottom: clamp(20px, 2.2vw, 30px);
+    border-left: 3px dashed var(--timeline-line);
+}
+
+.asset-details-page .asset-timeline-section .timeline .timeline-item:last-child{
+    padding-bottom: 0;
+}
+
+.asset-details-page .asset-timeline-section .timeline .timeline-item .dot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: clamp(-11px, -0.8vw, -9px);
+    width: clamp(16px, 1.4vw, 20px);
+    height: clamp(16px, 1.4vw, 20px);
+    border-radius: 50%;
+    background-color: var(--timeline-dot-bg);
+    border: var(--timeline-dot-border);
+    outline: 3px solid var(--card-bg);
+}
+
+.asset-details-page .asset-timeline-section .timeline .timeline-item .dot span{
+    border: 4px solid var(--timeline-dot-active);
+    border-radius: 50%;
+}
+
+.asset-details-page .asset-timeline-section .timeline .timeline-item .content .title{
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: clamp(13px, 1.1vw, 16px);
+}
+
+.asset-details-page .asset-timeline-section .timeline .timeline-item .content .time{
+    color: var(--body-text-secondary);
+    font-size: clamp(10px, 0.9vw, 12px);
+}
+
+@media (max-width: 400px){
+    
+    .asset-details-page, .asset-details-page *{
+        cursor: default !important;
+    }
+
+    .asset-details-page .title-section div{
+        flex-direction: column-reverse;
+        align-items: start
+    }
+
+    .asset-details-page .title-section .btns{
+        flex-direction: row;
+    }
+}
